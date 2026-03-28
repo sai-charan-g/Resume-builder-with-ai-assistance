@@ -60,29 +60,27 @@ const ClassicTemplate = forwardRef(({ resumeData, targetJob }, ref) => {
         </section>
 
         {/* Experience */}
-        <section>
-          <h3 style={{ fontSize: '12pt', fontWeight: 600, borderBottom: `1px solid ${theme.color}40`, color: theme.color, margin: '0 0 0.5rem 0', paddingBottom: '0.25rem', textTransform: 'uppercase' }}>
-            Experience
-          </h3>
-          {content.experience.length > 0 ? content.experience.map((exp, idx) => (
-            <div key={idx} style={{ marginBottom: '1rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <strong style={{ fontSize: '11pt' }}>{exp.role}</strong>
-                <span style={{ fontSize: '10pt' }}>{exp.date}</span>
+        {content.experience.length > 0 && (
+          <section>
+            <h3 style={{ fontSize: '12pt', fontWeight: 600, borderBottom: `1px solid ${theme.color}40`, color: theme.color, margin: '0 0 0.5rem 0', paddingBottom: '0.25rem', textTransform: 'uppercase' }}>
+              Experience
+            </h3>
+            {content.experience.map((exp, idx) => (
+              <div key={idx} style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <strong style={{ fontSize: '11pt' }}>{exp.role}</strong>
+                  <span style={{ fontSize: '10pt' }}>{exp.date}</span>
+                </div>
+                <div style={{ fontStyle: 'italic', marginBottom: '0.25rem' }}>{exp.company}</div>
+                <ul style={{ margin: '0', paddingLeft: '1.2rem' }}>
+                  {exp.bullets?.map((b, i) => (
+                    <li key={i} style={{ marginBottom: '0.25rem' }}>{b}</li>
+                  ))}
+                </ul>
               </div>
-              <div style={{ fontStyle: 'italic', marginBottom: '0.25rem' }}>{exp.company}</div>
-              <ul style={{ margin: '0', paddingLeft: '1.2rem' }}>
-                {exp.bullets?.map((b, i) => (
-                  <li key={i} style={{ marginBottom: '0.25rem' }}>{b}</li>
-                ))}
-              </ul>
-            </div>
-          )) : (
-            <div style={{ marginBottom: '1rem', opacity: 0.5, fontStyle: 'italic' }}>
-              Add your experience above to see it here.
-            </div>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
 
         {/* Education */}
         <section>

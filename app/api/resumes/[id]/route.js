@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
       return new NextResponse("Unauthorized", { status: 401 })
     }
 
-    const resume = await prisma.resume.findUnique({
+    const resume = await prisma.resume.findFirst({
       where: {
         id: resolvedParams.id,
         userId: session.user.id

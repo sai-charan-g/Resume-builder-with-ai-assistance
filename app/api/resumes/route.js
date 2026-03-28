@@ -38,8 +38,11 @@ export async function POST(req) {
 
     // If duplicating an existing resume
     if (duplicateFrom) {
-      const source = await prisma.resume.findUnique({
-        where: { id: duplicateFrom, userId: session.user.id }
+      const source = await prisma.resume.findFirst({
+        where: {
+          id: duplicateFrom,
+          userId: session.user.id
+        }
       })
       if (!source) {
         return new NextResponse("Source resume not found", { status: 404 })
