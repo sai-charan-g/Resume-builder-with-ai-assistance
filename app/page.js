@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, FileText, Sparkles, Download } from 'lucide-react';
+import ContactSection from '@/components/ContactSection';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -61,6 +62,8 @@ export default function Home() {
             <p>Download a perfectly pixel-aligned PDF with one click. 100% ATS friendly.</p>
           </div>
         </div>
+
+        <ContactSection />
       </div>
     </main>
   );
